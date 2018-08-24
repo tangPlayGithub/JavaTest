@@ -1,0 +1,25 @@
+1: package com.my.java.thinking4.io;
+2: 
+3: import java.io.BufferedReader;
+4: import java.io.BufferedWriter;
+5: import java.io.FileReader;
+6: import java.io.FileWriter;
+7: import java.io.PrintWriter;
+8: 
+9: public class BasicFileOutput {
+10: 	static String path = BasicFileOutput.class.getResource("").getPath().replace("bin", "src");
+11: 	static String file = path+"BasicFileOutput.txt";
+12: 	public static void main(String[] args) throws Exception {
+13: 		BufferedReader in = new BufferedReader(new FileReader(path+"BasicFileOutput.java"));
+14: 		PrintWriter out = new PrintWriter(file);
+15: 		String s;
+16: 		int lineCount = 1;
+17: 		 while((s = in.readLine()) != null ) {
+18: 			 out.println(lineCount++ + ": " + s);
+19: 		 }
+20: 		 in.close();
+21: 		 out.close();
+22: 		 System.out.println(file);
+23: 		 System.out.println(BufferedInputFile.read(file));
+24: 	}
+25: }
