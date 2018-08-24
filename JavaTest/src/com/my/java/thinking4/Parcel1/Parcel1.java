@@ -29,6 +29,6 @@ public class Parcel1 {
 
 	public static void main(String[] args) {
 		Parcel1 p = new Parcel1();
-		p.ship("Tasmania");
+		p.ship("Tasmania1111");
 	}
 }
