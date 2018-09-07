@@ -33,17 +33,9 @@ public class Test {
 		return new DictClient() {};
 	}
     public static void main(String[] args) throws Exception {
-    	List list = new ArrayList();
-    	list.add("你");
-    	list.add(2);
-    	
-    	System.out.println(list.contains(2));
-    	System.out.println(list.indexOf("你"));
-    	
-    	
-    	
-    	
-    	
-    	
+    	for (int i = 0; i < args.length; i++) {
+			System.out.println("参数"+(i+1)+":"+args[i]);
+		}
+    	System.out.println("-Xmx"+Runtime.getRuntime().maxMemory()/1000/1000+"M");
 	}
 }
