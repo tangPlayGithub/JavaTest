@@ -33,9 +33,11 @@ public class Test {
 		return new DictClient() {};
 	}
     public static void main(String[] args) throws Exception {
-    	for (int i = 0; i < args.length; i++) {
-			System.out.println("参数"+(i+1)+":"+args[i]);
-		}
-    	System.out.println("-Xmx"+Runtime.getRuntime().maxMemory()/1000/1000+"M");
+    	String str1 = new String("abc");
+    	String str2 = new String("abc");
+    	str2.length();
+    	System.out.println(str1==str2);
+    	System.out.println("abc"==str2.intern());
+    	System.out.println(str1.intern()==str2.intern());
 	}
 }
