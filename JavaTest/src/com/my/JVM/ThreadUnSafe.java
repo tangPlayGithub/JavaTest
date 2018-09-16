@@ -3,6 +3,7 @@ package com.my.JVM;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ThreadUnSafe {
 	public static Vector<Integer> numberList = new Vector<Integer>();
@@ -25,6 +26,21 @@ public class ThreadUnSafe {
 			}
 		}
 
+	}
+	
+	public static class MyThread extends Thread{
+		private volatile boolean stop = false;
+		public void stopMe() {
+			this.stop = true;
+		}
+		public void run() {
+			int i = 0;
+			while(!stop) {
+				i++;
+				System.out.println(i);
+			}
+			System.out.println("Stop Thread!");
+		}
 	}
 	
 	public static String createStringBuffer(String str1,String str2) {
@@ -53,11 +69,13 @@ public class ThreadUnSafe {
 		}
 		othercode2();
 	}
+	
 
-	public static void main(String[] args) {
-        Thread t1 = new Thread(new AddToList(0));
-        Thread t2 = new Thread(new AddToList(1));
-        t1.start();
-        t2.start();
+	public static void main(String[] args) throws Exception {
+		MyThread t = new MyThread();
+		t.start();
+		Thread.sleep(1000);
+		t.stopMe();
+		Thread.sleep(1000);
 	}
 }
