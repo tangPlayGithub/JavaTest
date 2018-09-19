@@ -1,5 +1,8 @@
 package com.my.java.thinking4.Parcel1;
 
+import com.my.java.thinking4.innerclasses.DotThis;
+import com.my.java.thinking4.innerclasses.DotThis.Inner;
+
 public class Parcel1 {
 	public void test() {
 		
@@ -13,7 +16,9 @@ public class Parcel1 {
 	}
 	
     public static void main(String[] args) {
-		System.out.println("aaaaaa");
+    	DotThis dt = new DotThis();
+    	Inner dti = dt.inner();
+		dti.outer().f();
 	}
     
 }
